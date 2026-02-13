@@ -4,7 +4,7 @@ from pathlib import Path
 import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%d/%m/%Y - %H:%M:%S')
 
-def extrair_dados_clima(url: str) -> list:
+def extract_weather_data(url: str) -> list:
     
     
     response = requests.get(url)
