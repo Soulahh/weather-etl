@@ -5,15 +5,15 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 import logging
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%d/%m/%Y - %H:%M:%S')
 
 env_path = Path(__file__).resolve().parent.parent / 'config' / '.env'
 load_dotenv(env_path)
-
+host = os.getenv('host')
 user = os.getenv('user')
 password = os.getenv('password')
 database = os.getenv('database')
-host = 'host.docker.internal'
 
 def get_engine():
     logging.info(f"-> Conectando em {host}:5432/{database}")
