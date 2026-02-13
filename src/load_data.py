@@ -18,7 +18,7 @@ host = 'host.docker.internal'
 def get_engine():
     logging.info(f"-> Conectando em {host}:5432/{database}")
     return create_engine(
-        f"postgresql+psycopg2://{user}:{quote_plus(password)@{host}:5432/{database}}"
+        f"postgresql+psycopg2://{user}:{quote_plus(password)}@{host}:5432/{database}"
     )
 
 

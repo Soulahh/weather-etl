@@ -7,4 +7,24 @@ wheels/
 *.egg-info
 
 # Virtual environments
-.venv
+.venv/
+venv/
+
+# Config / environment files
+config/.env
+*.env.local
+*.env.*.backup
+
+# Logs
+*.log
+*.tmp
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS-specific
+.DS_Store
+Thumbs.db
