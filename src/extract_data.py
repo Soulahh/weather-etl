@@ -3,8 +3,6 @@ import json
 from pathlib import Path
 import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%d/%m/%Y - %H:%M:%S')
-api_key = '02e0f4d72ff1dbce2dc69c6139b56794'
-url = f'https://api.openweathermap.org/data/2.5/weather?q=Rio de Janeiro,BR&units=metric&appid={api_key}'
 
 def extrair_dados_clima(url: str) -> list:
     
@@ -13,11 +11,11 @@ def extrair_dados_clima(url: str) -> list:
     data = response.json()
 
     if response.status_code != 200:
-        print("Erro na requisição")
+        logging.warning("Erro na requisição")
         return []
     
     if not data:
-        print("Nenhum dado retornado!")
+        logging.info("Nenhum dado retornado!")
         return []
     
 
@@ -30,7 +28,5 @@ def extrair_dados_clima(url: str) -> list:
         json.dump(data, f, indent=4)
     
 
-    print(f"Arquivo salvo em {output_path}")
+    logging.info(f"Arquivo salvo em {output_path}")
     return data
-
-extrair_dados_clima(url)
