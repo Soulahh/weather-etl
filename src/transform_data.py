@@ -5,7 +5,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%d/%m/%Y - %H:%M:%S')
 
 path_name = Path(__file__).parent.parent / 'data' / 'weather_data.json'
-column_names_to_drop = ['weather', 'weather-icon','sys.type']
+column_names_to_drop = ['weather', 'weather_icon','sys.type']
 column_names_to_rename = {
             "base" : "base",
             "visibility":"visibility",
@@ -93,3 +93,4 @@ def data_transformations():
     df = rename_columns(df, column_names_to_rename)
     df = normalize_datetime_columns(df, column_to_normalize_datetime)
     logging.info(f"\nTransformações concluidas!")
+    return df
